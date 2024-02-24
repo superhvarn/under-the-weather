@@ -12,7 +12,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})  # Apply CORS to all routes u
 logging.basicConfig(level=logging.DEBUG)
 
 # Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:my-secret-pw@localhost:3306/user_database'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:under-the-sea@0.0.0.0:3306/user_database'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
