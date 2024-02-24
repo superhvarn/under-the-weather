@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Register} from "./Authentification/Register"
 import {Login} from "./Authentification/Login"
 import {ZipCode} from "./Authentification/ZipCode";
-import './Authentification/authentification.css';
+import './Authentification/authentication.css'
 import {HomePage} from "./HomePage/HomePage";
 
 function App() {
