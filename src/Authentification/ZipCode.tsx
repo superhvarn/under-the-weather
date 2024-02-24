@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 
 export const ZipCode = (props: any) => {
     const [selectedState, setSelectedState] = useState('');
@@ -6,23 +7,17 @@ export const ZipCode = (props: any) => {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://127.0.0.1:5000/api/state', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ selectedState }),
-            });
-            if (response.ok) {
-                // Login successful
-                // Redirect to dashboard or perform other actions
-                console.log('Login successful');
-            } else {
-                const data = await response.json();
-                console.error("Error:");
-            }
+            const response = await fetch("http://127.0.0.1:5000/api/state", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ selectedState }),
+        });
+            const data = await response.json();
+            console.log(data);
         } catch (error) {
-            console.error('Error:', error);
+            console.error("Error:", error);
         }
     }
 
