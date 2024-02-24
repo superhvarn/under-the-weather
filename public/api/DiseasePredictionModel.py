@@ -180,5 +180,3 @@ def create_heatmap_for_state(df, disease_name, state):
 
 def generate_heatmaps_for_state(selectedState, selectedDisease):
     create_heatmap_for_state(predicted_tables[selectedDisease], selectedDisease, selectedState)
-        
-generate_heatmaps_for_state("ALL", "Hepatitis")
