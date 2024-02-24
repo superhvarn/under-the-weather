@@ -4,6 +4,10 @@ from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 import logging
+import requests
+from DiseasePredictionModel import generate_heatmaps_for_state
+
+
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})  # Apply CORS to all routes under /api/*
@@ -71,18 +75,30 @@ def login():
 
     # Check if the provided password matches the hashed password stored in the database
     if user.check_password(password):
-        console.log("Success")
         return jsonify({'message': 'Login successful'}), 200
     else:
         return jsonify({'message': 'Invalid email or password'}), 401
-    
+
 @app.route('/api/state', methods=['POST'])
-def login():
+def state():
     data = request.get_json()
 
     selectedState = data.get('selectedState')
-    
-    
+
+    try:
+        # Make a POST request to the /generate_heatmaps endpoint with the selected state
+        response = generate_heatmaps_for_state(selectedState)
+        if response:
+            if response.status_code == 200:
+                return jsonify({'message': 'Heatmaps generated successfully'}), 200
+            else:
+                return jsonify({'message': 'Failed to generate heatmaps'}), 500
+        else:
+            return jsonify({'message': 'No response received from heatmap generation function'}), 500
+    except Exception as e:
+        return jsonify({'message': 'Error processing request', 'error': str(e)}), 500
+
+
     
 
 if __name__ == '__main__':
