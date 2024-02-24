@@ -59,6 +59,49 @@ disease_dfs = {
     'Smallpox': df_smallpox
 }
 
+for disease, df in disease_dfs.items():
+    print(f"\nProcessing {disease}")
+    
+    # Preprocess the data
+    df = preprocess_data(df)
+    
+    # Define features and target
+    X = df[['week', 'incidence_per_capita', 'cases']]  # Features
+    y = df['cases']  # Target
+    
+    # Split into training and validation sets
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # Convert to tensors
+    X_train_tensor, y_train_tensor = torch.tensor(X_train.values, dtype=torch.float32), torch.tensor(y_train.values, dtype=torch.float32).view(-1, 1)
+    X_val_tensor, y_val_tensor = torch.tensor(X_val.values, dtype=torch.float32), torch.tensor(y_val.values, dtype=torch.float32).view(-1, 1)
+    
+    # Initialize model
+    model = DiseasePredictor(input_dim=X.shape[1])  # Input dimension is the number of features
+    
+    # Initialize optimizer and loss function
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    criterion = nn.MSELoss()
+    
+    # Training loop
+    epochs = 5
+    for epoch in range(epochs):
+        optimizer.zero_grad()
+        outputs = model(X_train_tensor)
+        loss = criterion(outputs, y_train_tensor)
+        loss.backward()
+        optimizer.step()
+    
+    # Evaluation
+    model.eval()
+    with torch.no_grad():
+        predictions = model(X_val_tensor)
+        val_loss = criterion(predictions, y_val_tensor)
+        print(f"{disease} Validation Loss: {val_loss.item()}")
+
+    # Optionally, save each model with a disease-specific name
+    torch.save(model.state_dict(), f'{disease.lower()}_model.pth')
+
 disease_models = {}
 for disease in disease_dfs.keys():
     model = DiseasePredictor(input_dim=3)  # Change input_dim to 3 since there are now 3 features
