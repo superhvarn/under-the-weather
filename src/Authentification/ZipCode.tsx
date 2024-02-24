@@ -26,6 +26,11 @@ export const ZipCode = (props: any) => {
         }
     }
 
+    const handleBack = (e: any) => {
+        e.preventDefault();
+        props.onFormSwitch('register');
+    }
+
     // List of US states with abbreviations
     const states = [
     { abbreviation: "AL", name: "Alabama" },
@@ -90,7 +95,7 @@ export const ZipCode = (props: any) => {
                 ))}
             </select>
             <button type={"submit"} onClick={handleSubmit}>Submit</button>
-            <button>Back</button>
+            <button onClick={handleBack}>Back</button>
         </div>
     );
 };
