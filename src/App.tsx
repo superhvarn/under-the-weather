@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import {Register} from "./Authentification/Register"
 import {Login} from "./Authentification/Login"
 import {ZipCode} from "./Authentification/ZipCode";
-import './App.css';
+import './Authentification/authentification.css';
+import {HomePage} from "./HomePage/HomePage";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('register');
+  const [currentPage, setCurrentPage] = useState('home');
   const togglePage = (pageName: string) => {
     setCurrentPage(pageName)
   }
@@ -17,8 +18,10 @@ function App() {
                   <Login onFormSwitch={togglePage}/>
               ) : currentPage === "zipcode" ? (
                   <ZipCode onFormSwitch={togglePage}/>
-              ) : (
+              ) : currentPage === "register" ? (
                   <Register onFormSwitch={togglePage}/>
+              ) : (
+                  <HomePage onFormSwitch={togglePage}/>
               )
               }
           </header>
