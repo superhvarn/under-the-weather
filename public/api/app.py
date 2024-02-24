@@ -75,6 +75,15 @@ def login():
         return jsonify({'message': 'Login successful'}), 200
     else:
         return jsonify({'message': 'Invalid email or password'}), 401
+    
+@app.route('/api/state', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    selectedState = data.get('selectedState')
+    
+    
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
