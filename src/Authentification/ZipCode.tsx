@@ -90,6 +90,7 @@ export const ZipCode = (props: any) => {
                 ))}
             </select>
             <button type={"submit"} onClick={handleSubmit}>Submit</button>
+            <button>Back</button>
         </div>
     );
 };
