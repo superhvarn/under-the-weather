@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {Register} from "./Register"
-import {Login} from "./Login"
+import {Register} from "./Authentification/Register"
+import {Login} from "./Authentification/Login"
+import {ZipCode} from "./Authentification/ZipCode";
 import './App.css';
 
 function App() {
@@ -10,13 +11,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-          {
-              currentPage === "login" ? <Login onFormSwitch={togglePage}/> : <Register onFormSwitch={togglePage}/>
-          }
-      </header>
-    </div>
+      <div className="App">
+          <header className="App-header">
+              {currentPage === "login" ? (
+                  <Login onFormSwitch={togglePage}/>
+              ) : currentPage === "zipcode" ? (
+                  <ZipCode onFormSwitch={togglePage}/>
+              ) : (
+                  <Register onFormSwitch={togglePage}/>
+              )}
+          </header>
+      </div>
   );
 }
 
