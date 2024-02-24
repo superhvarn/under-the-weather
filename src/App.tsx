@@ -19,7 +19,8 @@ function App() {
                   <ZipCode onFormSwitch={togglePage}/>
               ) : (
                   <Register onFormSwitch={togglePage}/>
-              )}
+              )
+              }
           </header>
       </div>
   );

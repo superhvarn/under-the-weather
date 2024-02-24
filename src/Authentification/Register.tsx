@@ -21,6 +21,7 @@ export const Register = (props: any) => {
         } catch (error) {
             console.error("Error:", error);
         }
+        props.onFormSwitch('zipcode');
     }
 
     return (
