@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import {Register} from "./Authentification/Register"
+import {Login} from "./Authentification/Login"
+import {ZipCode} from "./Authentification/ZipCode";
 import './App.css';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('register');
+  const togglePage = (pageName: string) => {
+    setCurrentPage(pageName)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+          <header className="App-header">
+              {currentPage === "login" ? (
+                  <Login onFormSwitch={togglePage}/>
+              ) : currentPage === "zipcode" ? (
+                  <ZipCode onFormSwitch={togglePage}/>
+              ) : (
+                  <Register onFormSwitch={togglePage}/>
+              )
+              }
+          </header>
+      </div>
   );
 }
 
