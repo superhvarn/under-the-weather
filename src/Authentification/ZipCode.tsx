@@ -22,7 +22,7 @@ export const ZipCode = (props: any) => {
 
     const handleBack = (e: any) => {
         e.preventDefault();
-        props.onFormSwitch('register');
+        props.onFormSwitch('home');
     }
 
     // List of US states with abbreviations

@@ -24,6 +24,11 @@ export const Register = (props: any) => {
         props.onFormSwitch('zipcode');
     }
 
+    const handleBack = (e: any) => {
+        e.preventDefault();
+        props.onFormSwitch('home');
+    }
+
     return (
         <div className={"auth-form-container"}>
             <form className={"register-form"} onSubmit={handleSubmit}>
@@ -48,6 +53,7 @@ export const Register = (props: any) => {
             <button type={"reset"} className={"link-btn"} onClick={() => props.onFormSwitch('login')}>
                 Already have an account? Login here:
             </button>
+            <button onClick={handleBack}>Back</button>
         </div>
     )
 }
