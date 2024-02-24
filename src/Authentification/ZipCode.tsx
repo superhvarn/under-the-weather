@@ -80,7 +80,6 @@ export const ZipCode = (props: any) => {
     { abbreviation: "WY", name: "Wyoming" }
 ];
 
-
     return (
         <div className={"auth-form-container"}>
             <h1>Enter a State to get Started!</h1>
