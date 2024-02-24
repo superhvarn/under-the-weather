@@ -59,12 +59,26 @@ def register():
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
-    
-    user = User.query.filter_by(email=data['email']).first()
-    if user and user.check_password(data['password']):
-        return jsonify({'message': 'Login successful'}), 200
 
-    return jsonify({'message': 'Invalid email or password'}), 401
+    email = data.get('email')
+    password = data.get('password')
+
+    # Retrieve user record based on the provided email
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        return jsonify({'message': 'User not found'}), 404
+
+    # Check if the provided password matches the hashed password stored in the database
+    if user.check_password(password):
+        console.log("Success")
+        return jsonify({'message': 'Login successful'}), 200
+    else:
+        return jsonify({'message': 'Invalid email or password'}), 401
+    
+    # user = User.query.filter_by(email=data['email']).first()
+    # if user and user.check_password(data['password']):
+    #     return jsonify({'message': 'Login successful'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

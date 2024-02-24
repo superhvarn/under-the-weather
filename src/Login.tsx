@@ -4,9 +4,27 @@ export const Login = (props: any) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        console.log(email);
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+            if (response.ok) {
+                // Login successful
+                // Redirect to dashboard or perform other actions
+                console.log('Login successful');
+            } else {
+                const data = await response.json();
+                console.error("Error:");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     return (
