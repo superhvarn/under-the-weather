@@ -154,7 +154,10 @@ for disease, table in predicted_tables.items():
     
 def create_heatmap_for_state(df, disease_name, state):
     # Filter DataFrame for the specified state
-    state_df = df[df['state'] == state]
+    if (state != "ALL"):
+        state_df = df[df['state'] == state]
+    else:
+        state_df = df
     
     # Create the heatmap
     fig = go.Figure(data=go.Choropleth(
@@ -175,8 +178,7 @@ def create_heatmap_for_state(df, disease_name, state):
     pyo.plot(fig, filename=filename)
 
 
-def generate_heatmaps_for_state(selectedState):
-    for disease_name, df in predicted_tables.items():
-        create_heatmap_for_state(df, disease_name, selectedState)
+def generate_heatmaps_for_state(selectedState, selectedDisease):
+    create_heatmap_for_state(predicted_tables[selectedDisease], selectedDisease, selectedState)
         
-    
+generate_heatmaps_for_state("ALL", "Hepatitis")

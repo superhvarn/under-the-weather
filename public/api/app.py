@@ -83,10 +83,12 @@ def state():
     data = request.get_json()
 
     selectedState = data.get('selectedState')
+    
+    selectedDisease = data.get('selectedDisease')
 
     try:
         # Make a POST request to the /generate_heatmaps endpoint with the selected state
-        response = generate_heatmaps_for_state(selectedState)
+        response = generate_heatmaps_for_state(selectedState, selectedDisease)
         if response:
             if response.status_code == 200:
                 return jsonify({'message': 'Heatmaps generated successfully'}), 200

@@ -3,6 +3,8 @@ import { useState } from "react";
 export const ZipCode = (props: any) => {
     const [selectedState, setSelectedState] = useState('');
 
+    const [selectedDisease, setSelectedDisease] = useState('');
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
@@ -11,7 +13,7 @@ export const ZipCode = (props: any) => {
             headers: {
             "Content-Type": "application/json",
             },
-            body: JSON.stringify({ selectedState }),
+            body: JSON.stringify({ selectedState, selectedDisease }),
         });
             const data = await response.json();
             console.log(data);
@@ -25,8 +27,18 @@ export const ZipCode = (props: any) => {
         props.onFormSwitch('register');
     }
 
+    const diseases = [
+        "Hepatitis",
+        "Measles",
+        "Mumps",
+        "Pertussis",
+        "Rubello",
+        "Smallpox"
+    ]
+
     // List of US states with abbreviations
     const states = [
+    { abbreviation: "ALL", name: "All States"},
     { abbreviation: "AL", name: "Alabama" },
     { abbreviation: "AK", name: "Alaska" },
     { abbreviation: "AZ", name: "Arizona" },
@@ -86,6 +98,12 @@ export const ZipCode = (props: any) => {
                 <option value="">Select a state</option>
                 {states.map((state, index) => (
                     <option key={index} value={state.abbreviation}>{state.name}</option>
+                ))}
+            </select>
+            <select value={selectedDisease} onChange={(e) => setSelectedDisease(e.target.value)}>
+                <option value="">Select a disease</option>
+                {diseases.map((disease, index) => (
+                    <option key={index} value={disease}>{disease}</option>
                 ))}
             </select>
             <button type={"submit"} onClick={handleSubmit}>Submit</button>
