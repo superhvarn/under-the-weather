@@ -34,5 +34,5 @@ A HackBeanpot project
   - GitHub Profile: https://github.com/alanZhang0813
 - Ella Chee
   - GitHub Profile: https://github.com/ellachee4
-- Jaden Zhu
+- Jaden Zhou
   - GitHub Profile: https://github.com/JadenZHub
