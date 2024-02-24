@@ -24,7 +24,6 @@ export const ZipCode = (props: any) => {
 
     const handleBack = (e: any) => {
         e.preventDefault();
-        props.onFormSwitch('home');
     }
 
     const diseases = [
