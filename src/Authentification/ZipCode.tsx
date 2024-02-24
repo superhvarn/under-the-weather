@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from 'axios';
 
 export const ZipCode = (props: any) => {
     const [selectedState, setSelectedState] = useState('');

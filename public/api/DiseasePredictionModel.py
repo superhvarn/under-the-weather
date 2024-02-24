@@ -210,12 +210,13 @@ class DiseasePredictor(nn.Module):
 
 # validation_tensors = {}
 
-model_files = ['public/api/hepatitis_model.pth', 'public/api/measles_model.pth', 'public/api/mumps_model.pth', 
-               'public/api/pertussis_model.pth', 'public/api/rubella_model.pth', 'public/api/smallpox_model.pth']
+model_files = ['/Users/harish/Documents/under-the-weather/public/api/Data_Sources/hepatitis_model.pth', '/Users/harish/Documents/under-the-weather/public/api/Data_Sources/measles_model.pth', '/Users/harish/Documents/under-the-weather/public/api/Data_Sources/mumps_model.pth', 
+               '/Users/harish/Documents/under-the-weather/public/api/Data_Sources/pertussis_model.pth', '/Users/harish/Documents/under-the-weather/public/api/Data_Sources/rubella_model.pth', '/Users/harish/Documents/under-the-weather/public/api/Data_Sources/smallpox_model.pth']
+diseaseNames = ['hepatitis', 'measles', 'mumps', 'pertussis', 'rubella', 'smallpox']
+
 models = {}
 
-for file_name in model_files:
-    disease_name = file_name.split("_")[0]
+for file_name, disease_name in zip(model_files, diseaseNames):
     model = DiseasePredictor()
     model.load_state_dict(torch.load(file_name))
     model.eval()
@@ -231,10 +232,36 @@ def predict_cases(model, X_features):
 
 # Now you can use the loaded models to predict cases for each disease
 # For example, to predict cases for hepatitis
-df_hepatitis = pd.read_csv('Data_Sources/hepatitis.csv')  # Load the hepatitis dataset
+df_hepatitis = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/hepatitis.csv')  # Load the hepatitis dataset
 X_hepatitis = df_hepatitis[['week', 'incidence_per_capita']]  # Extract features
 predicted_cases_hepatitis = predict_cases(models['hepatitis'], X_hepatitis)
 df_hepatitis['predicted_cases'] = predicted_cases_hepatitis
+
+df_measles = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/measles.csv')  # Load the hepatitis dataset
+X_measles = df_measles[['week', 'incidence_per_capita']]  # Extract features
+predicted_cases_measles = predict_cases(models['measles'], X_measles)
+df_measles['predicted_cases'] = predicted_cases_measles
+
+df_mumps = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/mumps.csv')  # Load the hepatitis dataset
+X_mumps = df_mumps[['week', 'incidence_per_capita']]  # Extract features
+predicted_cases_mumps = predict_cases(models['mumps'], X_mumps)
+df_mumps['predicted_cases'] = predicted_cases_mumps
+
+
+df_pertussis = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/pertussis.csv')  # Load the hepatitis dataset
+X_pertussis = df_mumps[['week', 'incidence_per_capita']]  # Extract features
+predicted_cases_pertussis = predict_cases(models['pertussis'], X_pertussis)
+df_mumps['predicted_cases'] = predicted_cases_pertussis
+
+df_rubella = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/rubella.csv')  # Load the hepatitis dataset
+X_rubella = df_rubella[['week', 'incidence_per_capita']]  # Extract features
+predicted_cases_rubella = predict_cases(models['rubella'], X_rubella)
+df_rubella['predicted_cases'] = predicted_cases_rubella
+
+df_smallpox = pd.read_csv('/Users/harish/Documents/under-the-weather/public/api/Data_Sources/smallpox.csv')  # Load the hepatitis dataset
+X_smallpox = df_smallpox[['week', 'incidence_per_capita']]  # Extract features
+predicted_cases_smallpox = predict_cases(models['smallpox'], X_smallpox)
+df_smallpox['predicted_cases'] = predicted_cases_smallpox
 
 all_states = [
         'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 
@@ -242,13 +269,6 @@ all_states = [
         'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 
         'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 
         'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
-
-df_hepatitis = pd.DataFrame({'state': ['PA'], 'predicted_cases': [100]})
-df_measles = pd.DataFrame({'state': [all_states], 'predicted_cases': [150]})
-df_mumps = pd.DataFrame({'state': [all_states], 'predicted_cases': [20]})
-df_pertussis = pd.DataFrame({'state': [all_states], 'predicted_cases': [250]})
-df_rubella = pd.DataFrame({'state': [all_states], 'predicted_cases': [300]})
-df_smallpox = pd.DataFrame({'state': [all_states], 'predicted_cases': [350]})
 
 disease_dataframes = {
     'Hepatitis': df_hepatitis,
@@ -291,6 +311,7 @@ def create_heatmap_for_state(df, disease_name, state):
 def generate_heatmaps_for_state(selectedState):
     for disease_name, df in disease_dataframes.items():
         create_heatmap_for_state(df, disease_name, selectedState)
+        
     
 # df_hepatitis['year'] = df_hepatitis['week'].apply(lambda x: int(str(x)[:4]))
 # df_hepatitis['week_of_year'] = df_hepatitis['week'].apply(lambda x: int(str(x)[4:]))
