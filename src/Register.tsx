@@ -6,11 +6,21 @@ export const Register = (props: any) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
-        console.log(firstName);
-        console.log(lastName);
-        console.log(email);
+        try {
+            const response = await fetch("http://127.0.0.1:5000/api/register", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ firstName, lastName, email, password }),
+        });
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 
     return (

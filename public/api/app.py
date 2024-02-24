@@ -6,10 +6,13 @@ from flask_cors import CORS
 import logging
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})  # Apply CORS to all routes under /api/*
+
+# Set up logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/dbname'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:my-secret-pw@localhost:3306/user_database'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
