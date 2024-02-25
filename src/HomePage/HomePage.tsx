@@ -4,9 +4,8 @@ import './HomePage.css';
 const HomePage = (props: any) => {
     return (
         <div className="home-page">
-            <video autoPlay loop muted className="background-video">
-                <source src={"./rain.mp4"} type="video/mp4"/>
-                Your browser does not support the video tag.
+            <video autoPlay={true} loop={true} muted={true} className={"background-video"}>
+                <source src={"/Videos/rain.mp4"} type={'video/mp4'}/>
             </video>
 
             <span className="text-gradient">Under the Weather</span>

@@ -6,10 +6,10 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url("rain.mp4");
     background-size: 100%;
     background-repeat: repeat-y;
     background-attachment: fixed;
+    z-index: 0;
 }
 
 .background-video {
@@ -32,9 +32,9 @@
 }
 
 @keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
+    0% { background-position: 0 50%; }
     50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 0 50%; }
 }
 
 .button-container {

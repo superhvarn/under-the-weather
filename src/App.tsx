@@ -30,7 +30,7 @@ function App() {
                 ) : null
                 }
             </header>
-            {/* Render HomePage outside of the header */}
+            {/* Render HomePage outside the header */}
             {currentPage === 'home' && <HomePage onFormSwitch={togglePage} />}
         </div>
     );
