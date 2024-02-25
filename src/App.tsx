@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Register } from "./Authentication/Register"
 import { Login } from "./Authentication/Login"
-import { ZipCode } from "./Authentication/ZipCode";
+import { SelectState } from "./Authentication/SelectState";
 import './Authentication/authentication.css'
 import HomePage from "./HomePage/HomePage";
 
@@ -24,7 +24,7 @@ function App() {
                 {currentPage === "login" ? (
                     <Login onFormSwitch={togglePage}/>
                 ) : currentPage === "zipcode" ? (
-                    <ZipCode onFormSwitch={togglePage}/>
+                    <SelectState onFormSwitch={togglePage}/>
                 ) : currentPage === "register" ? (
                     <Register onFormSwitch={togglePage}/>
                 ) : null
