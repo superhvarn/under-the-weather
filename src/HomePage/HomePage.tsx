@@ -21,8 +21,8 @@ export const HomePage = (props : any) => {
     };
 
     return (
-        <>
-            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Logo" className="homepage-logo"/>
+        <div>
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} width={250} height={250} alt="Logo" className="homepage-logo"/>
             <h1>Under the Weather</h1>
             <div className={"d-flex"}>
                 <div className={"d-flex flex-row"}>
@@ -30,6 +30,6 @@ export const HomePage = (props : any) => {
                     <button onClick={handleReg}>Register</button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
