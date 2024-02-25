@@ -4,6 +4,7 @@ import './HomePage.css';
 const HomePage = (props: any) => {
     return (
         <div className="home-page">
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} width={250} height={250} alt="Logo" className="homepage-logo"/>
             <video autoPlay={true} loop={true} muted={true} className={"background-video"}>
                 <source src={"/Videos/rain.mp4"} type={'video/mp4'}/>
             </video>
