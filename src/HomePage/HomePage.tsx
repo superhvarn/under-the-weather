@@ -6,7 +6,7 @@ const HomePage = (props: any) => {
         <div className="home-page">
             <img src={`${process.env.PUBLIC_URL}/logo.png`} width={250} height={250} alt="Logo" className="homepage-logo"/>
             <video autoPlay={true} loop={true} muted={true} className={"background-video"}>
-                <source src={"/Videos/rain.mp4"} type={'video/mp4'}/>
+                <source src={"/Videos/rain_in_reverse.mp4"} type={'video/mp4'}/>
             </video>
 
             <span className="text-gradient">Under the Weather</span>
