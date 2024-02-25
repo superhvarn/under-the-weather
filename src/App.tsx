@@ -7,11 +7,11 @@ import { HomePage } from "./HomePage/HomePage";
 
 function App() {
   // Initialize currentPage from localStorage if available, otherwise default to 'home'
-  const [currentPage, setCurrentPage] = useState(localStorage.getItem('currentPage') || 'home');
+  const [currentPage, setCurrentPage] = useState(sessionStorage.getItem('currentPage') || 'home');
 
   useEffect(() => {
     // Update localStorage whenever currentPage changes
-    localStorage.setItem('currentPage', currentPage);
+    sessionStorage.setItem('currentPage', currentPage);
   }, [currentPage]);
 
   const togglePage = (pageName : any) => {
