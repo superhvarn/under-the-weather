@@ -19,16 +19,13 @@ const HomePage = (props: any) => {
                     <br/>
                     Login
                 </button>
-                <button className={"custom-button"} onClick={() => props.onFormSwitch()}>
-                    <FaQuestionCircle/>
-                    <br/>
-                    Help
-                </button>
-                <button className={"custom-button"} onClick={() => props.onFormSwitch()}>
-                    <FaPeopleGroup/>
-                    <br/>
-                    About Us
-                </button>
+                <a href={"https://github.com/superhvarn/under-the-weather/blob/main/README.md"} target={"_blank"}>
+                    <button className={"custom-button"}>
+                        <FaQuestionCircle/>
+                        <br/>
+                        Help
+                    </button>
+                </a>
                 <button className={"custom-button"} onClick={() => props.onFormSwitch("register")}>
                     <FaUserPlus/>
                     <br/>
