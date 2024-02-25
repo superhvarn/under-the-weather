@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
 export const ZipCode = (props: any) => {
-    const [selectedState, setSelectedState] = useState(localStorage.getItem('selectedState') || '');
-    const [selectedDisease, setSelectedDisease] = useState(localStorage.getItem('selectedDisease') || '');
+    const [selectedState, setSelectedState] = useState(sessionStorage.getItem('selectedState') || '');
+    const [selectedDisease, setSelectedDisease] = useState(sessionStorage.getItem('selectedDisease') || '');
 
     useEffect(() => {
         // Update localStorage when selectedState or selectedDisease changes
-        localStorage.setItem('selectedState', selectedState);
-        localStorage.setItem('selectedDisease', selectedDisease);
+        sessionStorage.setItem('selectedState', selectedState);
+        sessionStorage.setItem('selectedDisease', selectedDisease);
     }, [selectedState, selectedDisease]);
 
     const handleSubmit = async (e: any) => {
