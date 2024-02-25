@@ -20,7 +20,7 @@ Data analysis performed using Pandas, Numpy libraries, as well as visualization 
 ![Screenshot 2024-02-24 at 10 46 34 PM](https://github.com/superhvarn/under-the-weather/assets/138818632/433c6594-7942-4c91-b7f3-47bd71e173d9)
 
 ## Project Structure
-Frontend: HTML, CSS, Javascript, React
+Frontend: HTML, CSS, TypeScript, React
 
 Database: MySQL
 
@@ -28,8 +28,9 @@ Backend: Python, PyTorch framework for NN
 
 ## Future Improvements
 1) Data Collection: Identify additional infectious diseases (COVID-19, influenza, RSV) which are relevant to users and geographic region. Collect reliable data from public health organizations, research institutions, and government agencies.
-2) Real-Time Data: Incorpating real-time data with feedback from users (user location and possible infectious disease) to provide most up-to-date predictions.
-3) Mobile Optimization: Optimize application for mobile devices in order to improve accessibility.
+2) Real-Time Data: Incorporate real-time data with feedback from users (user location and possible infectious disease) to provide most up-to-date predictions.
+3) Provide users with qualitative descriptions of predictions ("low risk", "medium risk", "high risk"), as well as suggestions for actions (wear a mask, avoid large group events, quarantine, etc).
+4) Mobile Optimization: Optimize application for mobile devices in order to improve accessibility.
 
 
 ## Developers
