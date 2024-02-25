@@ -21,7 +21,9 @@ Data analysis performed using Pandas, Numpy libraries, as well as visualization 
 
 ## Project Structure
 Frontend: HTML, CSS, Javascript, React
+
 Database: MySQL
+
 Backend: Python, PyTorch framework for NN
 
 ## Future Improvements
