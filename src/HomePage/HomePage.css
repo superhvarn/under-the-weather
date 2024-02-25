@@ -1,0 +1,47 @@
+.home-page {
+    height: 100vh; /* 100% of the viewport height */
+    width: 100vw; /* 100% of the viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("rain.mp4");
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+}
+
+.background-video {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.text-gradient {
+    font-size: 8rem; /* Adjust font size as needed */
+    margin-bottom: 2rem;
+    background-image: linear-gradient(78deg, rgb(47, 163, 99), #0e52b1, 50%, #5b2f2f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Bahnschrift, ui-rounded ;
+    animation: gradientAnimation 0.5s linear infinite; /* Adjust animation duration and timing as needed */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem; /* Add space between buttons */
+}
+
+.button {
+    width: 10rem;
+}

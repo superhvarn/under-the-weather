@@ -1,34 +1,21 @@
-import "./HomePage.css"
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import './HomePage.css';
 
-import App from "../App";
-import {useState} from "react";
-export const HomePage = (props: any) => {
-    const [currentPage, setCurrentPage] = useState('home');
-
-    const togglePage = (pageName: string) => {
-        setCurrentPage(pageName)
-    }
-
-    const handleLogin = (e: any) => {
-        e.preventDefault();
-        props.onFormSwitch('login');
-    }
-
-    const handleReg = (e: any) => {
-        e.preventDefault();
-        props.onFormSwitch('register');
-    }
-
+const HomePage = (props: any) => {
     return (
-        <>
-            <h1>Under the Weather</h1>
-            <div className={"d-flex"}>
-                <div className={"d-flex flex-row"}>
-                    <button onClick={handleLogin}>Log In</button>
-                    <button onClick={handleReg}>Register</button>
-                </div>
+        <div className="home-page">
+            <video autoPlay loop muted className="background-video">
+                <source src={"./rain.mp4"} type="video/mp4"/>
+                Your browser does not support the video tag.
+            </video>
+
+            <span className="text-gradient">Under the Weather</span>
+            <div className="button-container">
+                <button onClick={() => props.onFormSwitch("login")}>Login</button>
+                <button onClick={() => props.onFormSwitch("register")}>Register</button>
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};
+
+export default HomePage;

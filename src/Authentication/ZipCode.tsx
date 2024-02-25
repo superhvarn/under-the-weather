@@ -37,7 +37,7 @@ export const ZipCode = (props: any) => {
         "Measles",
         "Mumps",
         "Pertussis",
-        "Rubello",
+        "Rubella",
         "Smallpox"
     ]
 

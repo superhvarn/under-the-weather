@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Register } from "./Authentification/Register"
-import { Login } from "./Authentification/Login"
-import { ZipCode } from "./Authentification/ZipCode";
-import './Authentification/authentication.css'
-import { HomePage } from "./HomePage/HomePage";
+import { Register } from "./Authentication/Register"
+import { Login } from "./Authentication/Login"
+import { ZipCode } from "./Authentication/ZipCode";
+import './Authentication/authentication.css'
+import HomePage from "./HomePage/HomePage";
 
 function App() {
   // Initialize currentPage from localStorage if available, otherwise default to 'home'
@@ -18,21 +18,22 @@ function App() {
     setCurrentPage(pageName);
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        {currentPage === "login" ? (
-          <Login onFormSwitch={togglePage} />
-        ) : currentPage === "zipcode" ? (
-          <ZipCode onFormSwitch={togglePage} />
-        ) : currentPage === "register" ? (
-          <Register onFormSwitch={togglePage} />
-        ) : (
-          <HomePage onFormSwitch={togglePage} />
-        )}
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                {currentPage === "login" ? (
+                    <Login onFormSwitch={togglePage}/>
+                ) : currentPage === "zipcode" ? (
+                    <ZipCode onFormSwitch={togglePage}/>
+                ) : currentPage === "register" ? (
+                    <Register onFormSwitch={togglePage}/>
+                ) : null
+                }
+            </header>
+            {/* Render HomePage outside of the header */}
+            {currentPage === 'home' && <HomePage onFormSwitch={togglePage} />}
+        </div>
+    );
 }
 
 export default App;
