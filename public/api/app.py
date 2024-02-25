@@ -74,9 +74,9 @@ def login():
 
     # Check if the provided password matches the hashed password stored in the database
     if user.check_password(password):
-        return jsonify({'message': 'Login successful'}), 200
+        return jsonify({'message': 'Login successful', 'success': True}), 200
     else:
-        return jsonify({'message': 'Invalid email or password'}), 401
+        return jsonify({'message': 'Invalid email or password', 'success': False}), 401
 
 @app.route('/api/state', methods=['POST'])
 def state():

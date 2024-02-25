@@ -15,17 +15,21 @@ export const Login = (props: any) => {
                 body: JSON.stringify({ email, password }),
             });
             if (response.ok) {
-                // Login successful
-                // Redirect to dashboard or perform other actions
-                console.log('Login successful');
-            } else {
                 const data = await response.json();
-                console.error("Error:");
+                if (data.success) {
+                    // Login successful
+                    // Redirect to dashboard or perform other actions
+                    console.log('Login successful');
+                    props.onFormSwitch('state');
+                } else {
+                console.error('Invalid email or password');
+                } 
+            } else {
+                console.error('Error:');
             }
         } catch (error) {
             console.error('Error:', error);
         }
-        props.onFormSwitch('state');
     }
 
     const handleBack = (e: any) => {
