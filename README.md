@@ -1,5 +1,5 @@
 # Under the Weather
-A HackBeanpot project
+A project for HackBeanPot 2024 that incorporates full-stack developmnet, machine learning, model training, and UI/UX to deliver a cohesive product.
 
 ## Table of Contents
 1. [Introduction](#introduction)
