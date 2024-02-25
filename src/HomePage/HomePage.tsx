@@ -1,27 +1,28 @@
-import "./HomePage.css"
+import "./HomePage.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-import App from "../App";
-import {useState} from "react";
-export const HomePage = (props: any) => {
+import { useState } from "react";
+
+export const HomePage = (props : any) => {
     const [currentPage, setCurrentPage] = useState('home');
 
-    const togglePage = (pageName: string) => {
-        setCurrentPage(pageName)
-    }
+    const togglePage = (pageName : any) => {
+        setCurrentPage(pageName);
+    };
 
-    const handleLogin = (e: any) => {
+    const handleLogin = (e : any) => {
         e.preventDefault();
         props.onFormSwitch('login');
-    }
+    };
 
-    const handleReg = (e: any) => {
+    const handleReg = (e : any) => {
         e.preventDefault();
         props.onFormSwitch('register');
-    }
+    };
 
     return (
         <>
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="Logo" className="homepage-logo"/>
             <h1>Under the Weather</h1>
             <div className={"d-flex"}>
                 <div className={"d-flex flex-row"}>
@@ -30,5 +31,5 @@ export const HomePage = (props: any) => {
                 </div>
             </div>
         </>
-    )
+    );
 }
