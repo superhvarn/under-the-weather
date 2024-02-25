@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const SelectState = (props: any) => {
+export const State = (props: any) => {
     const [selectedState, setSelectedState] = useState(sessionStorage.getItem('selectedState') || '');
     const [selectedDisease, setSelectedDisease] = useState(sessionStorage.getItem('selectedDisease') || '');
 
