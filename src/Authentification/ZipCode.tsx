@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ZipCode = (props: any) => {
-    const [selectedState, setSelectedState] = useState('');
+    const [selectedState, setSelectedState] = useState(localStorage.getItem('selectedState') || '');
+    const [selectedDisease, setSelectedDisease] = useState(localStorage.getItem('selectedDisease') || '');
 
-    const [selectedDisease, setSelectedDisease] = useState('');
+    useEffect(() => {
+        // Update localStorage when selectedState or selectedDisease changes
+        localStorage.setItem('selectedState', selectedState);
+        localStorage.setItem('selectedDisease', selectedDisease);
+    }, [selectedState, selectedDisease]);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
