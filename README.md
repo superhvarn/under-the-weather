@@ -10,7 +10,7 @@ A project for HackBeanPot 2024 that incorporates full-stack developmnet, machine
 6. [Developers](#developers)
 
 ## Introduction
-Under the Weather is a web application designed to forecast disease outbreaks in your area based on their inputed zipcode. The application uses machine learning and data visualization to display possible outbreaks of either hepatitis, measles, pertussis, rubella, and smallpox in any or all of the 50 U.S. states.
+Under the Weather is a web application designed to forecast disease outbreaks in your area based on their inputed state. The application uses machine learning and data visualization to display possible outbreaks of either hepatitis, measles, pertussis, rubella, and smallpox in any or all of the 50 U.S. states.
 
 ## Requirements and Installation
 Flask and Docker are required.

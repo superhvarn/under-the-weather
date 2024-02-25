@@ -25,7 +25,7 @@ export const Login = (props: any) => {
         } catch (error) {
             console.error('Error:', error);
         }
-        props.onFormSwitch('zipcode');
+        props.onFormSwitch('state');
     }
 
     const handleBack = (e: any) => {
