@@ -1,7 +1,6 @@
 import React from 'react';
 import './HomePage.css';
 import { FaUserCheck, FaUserPlus, FaQuestionCircle } from "react-icons/fa";
-import { FaPeopleGroup } from "react-icons/fa6";
 
 const HomePage = (props: any) => {
     return (
