@@ -3,18 +3,14 @@ A project for HackBeanPot 2024 that incorporates full-stack developmnet, machine
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Functionality](#functionality)
-3. [Requirements and Installation](#requirements-and-installation)
-4. [Data Visualization](#data-visualization)
-5. [Project Structure](#project-structure)
-6. [Future Improvements](#future-improvements)
-7. [Developers](#developers)
+2. [Requirements and Installation](#requirements-and-installation)
+3. [Data Visualization](#data-visualization)
+4. [Project Structure](#project-structure)
+5. [Future Improvements](#future-improvements)
+6. [Developers](#developers)
 
 ## Introduction
 Under the Weather is a web application designed to forecast disease outbreaks in your area based on their inputed zipcode. The application uses machine learning and data visualization to display possible outbreaks of either hepatitis, measles, pertussis, rubella, and smallpox in any or all of the 50 U.S. states.
-
-## Functionality
-1) Users will input their 
 
 ## Requirements and Installation
 Flask and Docker are required.
@@ -23,13 +19,10 @@ Flask and Docker are required.
 Data analysis performed using Pandas, Numpy libraries, as well as visualization with Plotly (as seen below).
 ![Screenshot 2024-02-24 at 10 46 34 PM](https://github.com/superhvarn/under-the-weather/assets/138818632/433c6594-7942-4c91-b7f3-47bd71e173d9)
 
-
 ## Project Structure
 Frontend: HTML, CSS, Javascript, React
-
 Database: MySQL
-
-Backend: Python
+Backend: Python, PyTorch framework for NN
 
 ## Future Improvements
 1) Data Collection: Identify additional infectious diseases (COVID-19, influenza, RSV) which are relevant to users and geographic region. Collect reliable data from public health organizations, research institutions, and government agencies.
