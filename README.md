@@ -26,7 +26,9 @@ Data analysis performed using Pandas, Numpy libraries, as well as visualization 
 
 ## Project Structure
 Frontend: HTML, CSS, Javascript
+
 Database: SQLite
+
 Backend: Python
 
 ## Future Improvements
